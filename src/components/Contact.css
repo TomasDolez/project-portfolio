@@ -1,0 +1,120 @@
+.contact {
+  border-top: 1px solid var(--border-subtle);
+  padding-bottom: 0;
+}
+
+.contact__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.contact__desc {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  max-width: 420px;
+  margin-top: 0.5rem;
+}
+
+.contact__cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* Sticky-note style contact cards */
+.contact__card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.5rem;
+  padding: 1.75rem 1.25rem;
+  border-radius: 2px;
+  border-left: 3px solid;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+  transition: transform 0.3s var(--ease-out), box-shadow 0.3s;
+}
+
+.contact__card:hover {
+  transform: translateY(-4px) rotate(0deg) !important;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
+}
+
+.contact__card--email {
+  background: var(--sticky-yellow-bg);
+  border-color: var(--sticky-yellow);
+  transform: rotate(-1deg);
+}
+
+.contact__card--linkedin {
+  background: var(--sticky-blue-bg);
+  border-color: var(--sticky-blue);
+  transform: rotate(0.8deg);
+}
+
+.contact__card-pin {
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #d45454, #b33030);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+  z-index: 2;
+}
+
+.contact__card-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.04);
+  color: var(--accent);
+  border-radius: 4px;
+}
+
+.contact__card-label {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.contact__card-value {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* Footer */
+.footer {
+  margin-top: var(--section-padding);
+  padding: 2rem 0;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.footer p {
+  font-size: 0.8rem;
+  color: var(--text-tertiary);
+}
+
+@media (max-width: 768px) {
+  .contact__inner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .contact__card {
+    transform: rotate(0deg) !important;
+  }
+}

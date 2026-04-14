@@ -1,0 +1,74 @@
+.skills {
+  border-top: 1px solid var(--border-subtle);
+}
+
+.skills__board {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  margin-top: 2.5rem;
+}
+
+.skills__group-title {
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px dashed var(--border);
+}
+
+.skills__notes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.skills__note {
+  padding: 0.55rem 0.85rem;
+  border-radius: 2px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  transition: transform 0.25s var(--ease-out), box-shadow 0.25s;
+  cursor: default;
+  position: relative;
+}
+
+/* Tape strip on some notes */
+.skills__note:nth-child(3n+1)::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-2deg);
+  width: 28px;
+  height: 8px;
+  background: rgba(0, 0, 0, 0.04);
+  border-radius: 1px;
+}
+
+.skills__note:hover {
+  transform: translateY(-3px) rotate(0deg) !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+
+.skills__note-text {
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.skills__note:hover .skills__note-text {
+  color: var(--text-primary);
+}
+
+@media (max-width: 768px) {
+  .skills__board {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}

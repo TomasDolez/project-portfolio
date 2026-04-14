@@ -1,0 +1,214 @@
+.projects {
+  border-top: 1px solid var(--border-subtle);
+}
+
+.projects__subtitle {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  max-width: 480px;
+}
+
+.projects__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.75rem;
+  margin-top: 2.5rem;
+}
+
+/* ============================================
+   PROJECT DOCUMENT CARD
+   ============================================ */
+.project-doc {
+  position: relative;
+  background: var(--paper-bg);
+  border: 1px solid var(--paper-border);
+  border-radius: 2px;
+  padding: 2rem 1.75rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  box-shadow: var(--paper-shadow);
+  transform: rotate(var(--rotate, 0deg));
+  transition: transform 0.35s var(--ease-out), box-shadow 0.35s;
+}
+
+.project-doc:hover {
+  transform: rotate(0deg) translateY(-6px);
+  box-shadow: var(--paper-shadow-hover);
+}
+
+/* Pin at top center */
+.project-doc__pin {
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #d45454, #b33030);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+  z-index: 2;
+}
+
+/* File header */
+.project-doc__file-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.project-doc__file-id {
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--text-tertiary);
+  background: var(--bg-elevated);
+  padding: 0.15rem 0.5rem;
+  border-radius: 2px;
+  border: 1px solid var(--border-subtle);
+}
+
+/* Stamp (status badge) */
+.project-doc__stamp {
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.65rem;
+  border-radius: 2px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.project-doc__stamp--completed {
+  color: var(--accent);
+  border: 1.5px solid var(--accent);
+  background: var(--accent-muted);
+  transform: rotate(-2deg);
+}
+
+.project-doc__stamp--ongoing {
+  color: #b87514;
+  border: 1.5px solid #b87514;
+  background: rgba(184, 117, 20, 0.1);
+  transform: rotate(1deg);
+}
+
+.project-doc__stamp-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+/* Ruled lines decoration */
+.project-doc__ruled {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 4px 0;
+}
+
+.project-doc__ruled span {
+  display: block;
+  height: 1px;
+  background: var(--border-subtle);
+}
+
+.project-doc__ruled span:nth-child(1) { width: 100%; }
+.project-doc__ruled span:nth-child(2) { width: 85%; }
+.project-doc__ruled span:nth-child(3) { width: 60%; }
+
+.project-doc__title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.project-doc__role {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--accent);
+}
+
+.project-doc__desc {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+.project-doc__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.project-doc__tag {
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  font-weight: 500;
+  color: var(--text-tertiary);
+  background: var(--bg-elevated);
+  padding: 0.2rem 0.5rem;
+  border-radius: 2px;
+  border: 1px solid var(--border-subtle);
+}
+
+.project-doc__outcomes {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-top: 0.25rem;
+  padding-top: 0.75rem;
+  border-top: 1px dashed var(--border);
+}
+
+.project-doc__outcomes-header {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.15rem;
+}
+
+.project-doc__outcomes li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.87rem;
+  color: var(--text-secondary);
+}
+
+.project-doc__outcomes svg {
+  flex-shrink: 0;
+}
+
+/* Dog-ear fold */
+.project-doc__fold {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 22px;
+  height: 22px;
+  background: linear-gradient(225deg, var(--bg-primary) 50%, var(--border) 50%);
+}
+
+@media (max-width: 768px) {
+  .projects__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-doc {
+    transform: rotate(0deg);
+  }
+}

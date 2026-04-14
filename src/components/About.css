@@ -1,0 +1,110 @@
+.about {
+  border-top: 1px solid var(--border-subtle);
+}
+
+.about__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-top: 1rem;
+}
+
+.about__text {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.about__text p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.about__highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* Sticky-note style cards */
+.about__card {
+  position: relative;
+  display: flex;
+  gap: 1rem;
+  padding: 1.35rem 1.25rem;
+  border-radius: 2px;
+  border-left: 3px solid;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+  transition: transform 0.3s var(--ease-out), box-shadow 0.3s;
+}
+
+.about__card:hover {
+  transform: translateY(-3px) rotate(0deg) !important;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
+}
+
+.about__card--yellow {
+  background: var(--sticky-yellow-bg);
+  border-color: var(--sticky-yellow);
+}
+
+.about__card--blue {
+  background: var(--sticky-blue-bg);
+  border-color: var(--sticky-blue);
+}
+
+.about__card--green {
+  background: var(--sticky-green-bg);
+  border-color: var(--sticky-green);
+}
+
+/* Pin at top */
+.about__card-pin {
+  position: absolute;
+  top: -5px;
+  right: 24px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #d45454, #b33030);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+  z-index: 2;
+}
+
+.about__card-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.04);
+  border-radius: 4px;
+}
+
+.about__card-title {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.about__card-desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .about__grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .about__card {
+    transform: rotate(0deg) !important;
+  }
+}
