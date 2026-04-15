@@ -18,7 +18,6 @@ const colorMap = {
   orange: { bg: 'var(--sticky-orange-bg)', border: 'var(--sticky-orange)' },
 }
 
-/* PLACEHOLDER: Adjust skills to match your actual expertise */
 const groups: SkillGroup[] = [
   {
     category: 'Methodologies',
@@ -27,41 +26,41 @@ const groups: SkillGroup[] = [
       { name: 'Kanban', color: 'blue' },
       { name: 'Waterfall', color: 'yellow' },
       { name: 'Hybrid', color: 'orange' },
-      { name: 'SAFe', color: 'pink' },
+      { name: 'Change Management', color: 'pink' },
       { name: 'Design Thinking', color: 'green' },
     ],
   },
   {
-    category: 'AI & Data',
+    category: 'AI & Automation',
     items: [
-      { name: 'LLM Integration', color: 'pink' },
+      { name: 'Claude / LLMs', color: 'pink' },
       { name: 'Prompt Engineering', color: 'blue' },
-      { name: 'AI Strategy', color: 'orange' },
-      { name: 'Data Pipelines', color: 'yellow' },
-      { name: 'ML Ops Basics', color: 'green' },
+      { name: 'AI Agents', color: 'orange' },
+      { name: 'Workflow Automation', color: 'yellow' },
+      { name: 'Dynamic Pricing', color: 'green' },
       { name: 'Process Mining', color: 'blue' },
     ],
   },
   {
-    category: 'Project Management',
+    category: 'Tools & Platforms',
     items: [
       { name: 'Jira', color: 'blue' },
       { name: 'Confluence', color: 'blue' },
-      { name: 'Asana', color: 'orange' },
-      { name: 'Monday.com', color: 'pink' },
-      { name: 'MS Project', color: 'green' },
-      { name: 'Notion', color: 'yellow' },
+      { name: 'Targetprocess', color: 'orange' },
+      { name: 'MS Loop', color: 'pink' },
+      { name: 'Power BI', color: 'yellow' },
+      { name: 'Notion', color: 'green' },
     ],
   },
   {
     category: 'Communication & Ops',
     items: [
-      { name: 'Slack', color: 'pink' },
-      { name: 'Teams', color: 'blue' },
+      { name: 'MS Teams', color: 'blue' },
+      { name: 'SharePoint', color: 'green' },
       { name: 'Miro', color: 'yellow' },
       { name: 'Figma', color: 'orange' },
-      { name: 'GitHub', color: 'green' },
-      { name: 'Power BI', color: 'yellow' },
+      { name: 'GitHub', color: 'pink' },
+      { name: 'Slack', color: 'pink' },
     ],
   },
 ]

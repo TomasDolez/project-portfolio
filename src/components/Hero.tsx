@@ -31,9 +31,41 @@ export default function Hero() {
           <span className="hero__sticky-text">Deploy v2.1</span>
           <span className="hero__sticky-check">&#10003;</span>
         </div>
-        {/* Floating paper clip */}
+        {/* Additional PM sticky notes */}
+        <div className="hero__sticky hero__sticky--6">
+          <span className="hero__sticky-text">Backlog</span>
+          <span className="hero__sticky-text">Grooming</span>
+          <span className="hero__sticky-check">&#10003;</span>
+        </div>
+        <div className="hero__sticky hero__sticky--7">
+          <span className="hero__sticky-text">Risk Log</span>
+          <div className="hero__sticky-lines">
+            <span /><span /><span />
+          </div>
+        </div>
+        <div className="hero__sticky hero__sticky--8">
+          <span className="hero__sticky-text">UAT Sign-off</span>
+          <span className="hero__sticky-priority">PENDING</span>
+        </div>
+        <div className="hero__sticky hero__sticky--9">
+          <span className="hero__sticky-text">Retro Notes</span>
+          <span className="hero__sticky-check">&#10003;</span>
+        </div>
+        <div className="hero__sticky hero__sticky--10">
+          <span className="hero__sticky-text">KPI Review</span>
+          <span className="hero__sticky-time">14:30</span>
+        </div>
+        <div className="hero__sticky hero__sticky--11">
+          <span className="hero__sticky-text">Release</span>
+          <span className="hero__sticky-text">Checklist</span>
+          <div className="hero__sticky-lines">
+            <span /><span />
+          </div>
+        </div>
+        {/* Floating paper clips */}
         <div className="hero__paperclip hero__paperclip--1" />
         <div className="hero__paperclip hero__paperclip--2" />
+        <div className="hero__paperclip hero__paperclip--3" />
       </div>
 
       <div className="hero__content container">
@@ -50,10 +82,9 @@ export default function Hero() {
           Project Manager <span className="hero__sep">&middot;</span> AI Consultant
         </p>
 
-        {/* PLACEHOLDER: Replace with your real tagline */}
         <p className="hero__tagline reveal reveal-delay-3">
-          I help teams ship complex projects on time — from digital
-          transformations to AI-powered workflow automation.
+          I help teams ship complex projects on time — from enterprise
+          tooling rollouts to AI-powered automation at scale.
         </p>
 
         <div className="hero__actions reveal reveal-delay-4">
@@ -75,17 +106,21 @@ export default function Hero() {
             <span className="hero__stat-label">Years Experience</span>
           </div>
           <div className="hero__stat hero__stat--blue">
-            <span className="hero__stat-num">15+</span>
-            <span className="hero__stat-label">Projects Delivered</span>
+            <span className="hero__stat-num">8</span>
+            <span className="hero__stat-label">Projects Led</span>
           </div>
           <div className="hero__stat hero__stat--pink">
-            <span className="hero__stat-num">8+</span>
-            <span className="hero__stat-label">AI Initiatives</span>
+            <span className="hero__stat-num">3</span>
+            <span className="hero__stat-label">Running Now</span>
           </div>
         </div>
       </div>
 
       <div className="hero__scroll-hint" aria-hidden="true">
+        <div className="hero__mouse">
+          <div className="hero__mouse-wheel" />
+        </div>
+        <span className="hero__scroll-text">Scroll</span>
         <div className="hero__scroll-line" />
       </div>
     </section>

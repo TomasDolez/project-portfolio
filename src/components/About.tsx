@@ -3,20 +3,20 @@ import './About.css'
 const highlights = [
   {
     icon: '📋',
-    title: 'Project Delivery',
-    desc: 'End-to-end management of complex digital projects across cross-functional teams.',
+    title: 'Project & Portfolio Management',
+    desc: 'Leading cross-functional projects from strategy to delivery — Jira rollouts, process redesigns, and enterprise-wide tooling.',
     color: 'yellow' as const,
   },
   {
     icon: '🤖',
-    title: 'AI Consulting',
-    desc: 'Helping organizations identify and implement high-impact AI use cases.',
+    title: 'AI & Automation',
+    desc: 'Building AI agents for PM teams, automating pricing and campaign workflows, and driving data-driven decision-making.',
     color: 'blue' as const,
   },
   {
     icon: '🔄',
-    title: 'Process Optimization',
-    desc: 'Streamlining workflows with Agile methodologies and modern tooling.',
+    title: 'Process & Change Management',
+    desc: 'Redesigning work structures, driving tool adoption, and bridging business needs with technical implementation.',
     color: 'green' as const,
   },
 ]
@@ -34,23 +34,24 @@ export default function About() {
 
         <div className="about__grid">
           <div className="about__text reveal reveal-delay-1">
-            {/* PLACEHOLDER: Replace with your real bio */}
             <p>
-              I'm a project manager with 3+ years of experience delivering digital
-              products and leading AI initiatives. I thrive at the intersection of
-              technology and business — translating complex requirements into
-              actionable plans and measurable outcomes.
+              I'm a project manager at Notino with 3+ years of experience
+              delivering complex digital projects and driving AI adoption.
+              I specialize in turning fragmented processes into scalable,
+              data-driven systems — from enterprise Jira rollouts to automated
+              pricing engines.
             </p>
             <p>
-              My background spans e-commerce, SaaS, and enterprise platforms. I've
-              managed cross-functional teams of up to 20 people and delivered
-              projects ranging from CRM implementations to AI-powered automation
-              pipelines.
+              Currently, I'm leading the centralization of work management
+              across the company in Jira, managing a large-scale pricing
+              and marketing automation initiative, and building an AI-powered
+              assistant for the project management team.
             </p>
             <p>
-              When I'm not managing projects, I consult on AI adoption strategies —
-              helping teams find the right use cases and navigate the hype with
-              pragmatic, results-driven approaches.
+              My experience spans tool administration (Targetprocess), process
+              redesign, cross-functional coordination, and hands-on AI consulting.
+              I bridge the gap between business strategy and technical execution —
+              always focused on measurable outcomes.
             </p>
           </div>
 

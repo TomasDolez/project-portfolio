@@ -16,7 +16,7 @@ export default function Contact() {
 
           <div className="contact__cards reveal reveal-delay-1">
             {/* PLACEHOLDER: Replace with your real email and LinkedIn */}
-            <a href="mailto:hello@example.com" className="contact__card contact__card--email">
+            <a href="mailto:dolezal.tomca@gmail.com" className="contact__card contact__card--email">
               <div className="contact__card-pin" />
               <span className="contact__card-icon">
                 <svg width="22" height="22" viewBox="0 0 20 20" fill="none">
@@ -25,10 +25,10 @@ export default function Contact() {
                 </svg>
               </span>
               <span className="contact__card-label">Email</span>
-              <span className="contact__card-value">hello@example.com</span>
+              <span className="contact__card-value">dolezal.tomca@gmail.com</span>
             </a>
 
-            <a href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener noreferrer" className="contact__card contact__card--linkedin">
+            <a href="https://www.linkedin.com/in/tom%C3%A1%C5%A1-dole%C5%BEal-940458174/" target="_blank" rel="noopener noreferrer" className="contact__card contact__card--linkedin">
               <div className="contact__card-pin" />
               <span className="contact__card-icon">
                 <svg width="22" height="22" viewBox="0 0 20 20" fill="none">
