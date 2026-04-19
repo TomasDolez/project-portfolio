@@ -32,10 +32,8 @@
   color: var(--text-primary);
 }
 
-.navbar__logo-icon {
-  color: var(--accent);
-  font-size: 1.3rem;
-  line-height: 1;
+.navbar__logo-mark {
+  flex-shrink: 0;
 }
 
 .navbar__links {

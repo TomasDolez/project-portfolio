@@ -66,6 +66,52 @@
   color: var(--text-primary);
 }
 
+/* Proficiency dots */
+.skills__note {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.skills__dots {
+  display: flex;
+  gap: 3px;
+  flex-shrink: 0;
+}
+
+.skills__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.15);
+  transition: background 0.2s;
+}
+
+.skills__dot--filled {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.skills__note:hover .skills__dot--filled {
+  background: rgba(0, 0, 0, 0.65);
+}
+
+/* Legend */
+.skills__legend {
+  display: flex;
+  gap: 1.25rem;
+  margin-top: 0.75rem;
+}
+
+.skills__legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--text-tertiary);
+}
+
 @media (max-width: 768px) {
   .skills__board {
     grid-template-columns: 1fr;

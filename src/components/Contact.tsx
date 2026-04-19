@@ -7,15 +7,14 @@ export default function Contact() {
         <div className="contact__inner">
           <div className="reveal">
             <span className="section-label">Contact</span>
-            <h2 className="section-title">Let's work together</h2>
+            <h2 className="section-title">Let's connect</h2>
             <p className="contact__desc">
-              Have a project in mind or want to discuss how AI can accelerate your workflows?
-              I'd love to hear from you.
+              Whether you're looking for a project manager, exploring AI adoption,
+              or just want to chat — I'm always happy to connect.
             </p>
           </div>
 
           <div className="contact__cards reveal reveal-delay-1">
-            {/* PLACEHOLDER: Replace with your real email and LinkedIn */}
             <a href="mailto:dolezal.tomca@gmail.com" className="contact__card contact__card--email">
               <div className="contact__card-pin" />
               <span className="contact__card-icon">
@@ -45,7 +44,25 @@ export default function Contact() {
 
       <footer className="footer">
         <div className="container">
-          <p>&copy; 2026 Tom&#225;&#353; Dole&#382;al. All rights reserved.</p>
+          <div className="footer__inner">
+            <p className="footer__copy">&copy; 2026 Tom&#225;&#353; Dole&#382;al. All rights reserved.</p>
+            <div className="footer__links">
+              <a href="mailto:dolezal.tomca@gmail.com" className="footer__link">
+                <svg width="16" height="16" viewBox="0 0 20 20" fill="none">
+                  <rect x="2" y="4" width="16" height="12" rx="2" stroke="currentColor" strokeWidth="1.5"/>
+                  <path d="M2 6l8 5 8-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+                </svg>
+                Email
+              </a>
+              <a href="https://www.linkedin.com/in/tom%C3%A1%C5%A1-dole%C5%BEal-940458174/" target="_blank" rel="noopener noreferrer" className="footer__link">
+                <svg width="16" height="16" viewBox="0 0 20 20" fill="none">
+                  <rect x="2" y="2" width="16" height="16" rx="3" stroke="currentColor" strokeWidth="1.5"/>
+                  <path d="M6 9v5M6 6v.01M10 14v-3.5a1.5 1.5 0 1 1 3 0V14M10 9v5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+                LinkedIn
+              </a>
+            </div>
+          </div>
         </div>
       </footer>
     </section>

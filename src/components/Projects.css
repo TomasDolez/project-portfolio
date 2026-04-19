@@ -8,6 +8,14 @@
   max-width: 480px;
 }
 
+.projects__hint {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  margin-top: 0.35rem;
+  font-style: italic;
+}
+
 /* ============================================
    TIMELINE
    ============================================ */
@@ -17,15 +25,15 @@
   padding: 1rem 0 2rem;
 }
 
-/* Vertical center line */
+/* Vertical center line — dashed for hand-drawn feel */
 .timeline::before {
   content: '';
   position: absolute;
   left: 50%;
   top: 0;
   bottom: 0;
-  width: 2px;
-  background: var(--border);
+  width: 0;
+  border-left: 2px dashed var(--border);
   transform: translateX(-50%);
 }
 
@@ -42,21 +50,21 @@
   margin-bottom: 0;
 }
 
-/* Left items: card on left, node in center */
+/* Left items */
 .timeline__item--left {
   flex-direction: row;
   justify-content: flex-end;
   padding-right: calc(50% + 2rem);
 }
 
-/* Right items: node in center, card on right */
+/* Right items */
 .timeline__item--right {
   flex-direction: row;
   justify-content: flex-start;
   padding-left: calc(50% + 2rem);
 }
 
-/* Timeline node (dot on the center line) */
+/* Timeline node */
 .timeline__node {
   position: absolute;
   left: 50%;
@@ -72,16 +80,28 @@
   background: var(--accent);
   border: 3px solid var(--bg-primary);
   box-shadow: 0 0 0 2px var(--accent);
+  transition: all 0.3s;
 }
 
-/* Horizontal connector from dot to card */
+.timeline__dot--ongoing {
+  background: #b87514;
+  box-shadow: 0 0 0 2px #b87514, 0 0 8px rgba(184, 117, 20, 0.3);
+  animation: pulse-node 2.5s ease-in-out infinite;
+}
+
+@keyframes pulse-node {
+  0%, 100% { box-shadow: 0 0 0 2px #b87514, 0 0 4px rgba(184, 117, 20, 0.2); }
+  50% { box-shadow: 0 0 0 2px #b87514, 0 0 12px rgba(184, 117, 20, 0.4); }
+}
+
+/* Horizontal connector — dashed to match */
 .timeline__item--left .timeline__node::after,
 .timeline__item--right .timeline__node::after {
   content: '';
   position: absolute;
   top: 50%;
-  height: 2px;
-  background: var(--border);
+  height: 0;
+  border-top: 2px dashed var(--border);
   transform: translateY(-50%);
 }
 
@@ -113,14 +133,26 @@
   transform: rotate(var(--rotate, 0deg));
   transition: transform 0.35s var(--ease-out), box-shadow 0.35s;
   width: 100%;
+  cursor: pointer;
+  user-select: none;
 }
 
 .project-doc:hover {
-  transform: rotate(0deg) translateY(-6px);
+  transform: rotate(0deg) translateY(-4px);
   box-shadow: var(--paper-shadow-hover);
 }
 
-/* Pin at top center */
+.project-doc--expanded {
+  box-shadow: var(--paper-shadow-hover);
+}
+
+/* Ongoing card visual distinction */
+.project-doc--ongoing {
+  border-left: 3px solid #b87514;
+  background: linear-gradient(135deg, var(--paper-bg) 0%, rgba(184, 117, 20, 0.04) 100%);
+}
+
+/* Pin */
 .project-doc__pin {
   position: absolute;
   top: -6px;
@@ -141,6 +173,26 @@
   align-items: center;
 }
 
+.project-doc__header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.project-doc__header-right {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.project-doc__period {
+  font-family: var(--font-display);
+  font-size: 0.6rem;
+  font-weight: 500;
+  color: var(--text-tertiary);
+  opacity: 0.7;
+}
+
 .project-doc__file-id {
   font-family: var(--font-display);
   font-size: 0.65rem;
@@ -151,6 +203,20 @@
   padding: 0.15rem 0.5rem;
   border-radius: 2px;
   border: 1px solid var(--border-subtle);
+}
+
+/* Phase label */
+.project-doc__phase {
+  font-family: var(--font-display);
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: #b87514;
+  background: rgba(184, 117, 20, 0.08);
+  padding: 0.15rem 0.5rem;
+  border-radius: 2px;
+  border: 1px dashed rgba(184, 117, 20, 0.3);
+  text-transform: uppercase;
 }
 
 /* Stamp (status badge) */
@@ -189,7 +255,7 @@
   animation: pulse-dot 2s ease-in-out infinite;
 }
 
-/* Ruled lines decoration */
+/* Ruled lines */
 .project-doc__ruled {
   display: flex;
   flex-direction: column;
@@ -207,11 +273,26 @@
 .project-doc__ruled span:nth-child(2) { width: 85%; }
 .project-doc__ruled span:nth-child(3) { width: 60%; }
 
+/* Title with chevron */
 .project-doc__title {
   font-family: var(--font-display);
   font-size: 1rem;
   font-weight: 700;
   color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.project-doc__chevron {
+  flex-shrink: 0;
+  color: var(--text-tertiary);
+  transition: transform 0.3s ease;
+}
+
+.project-doc__chevron--open {
+  transform: rotate(180deg);
 }
 
 .project-doc__role {
@@ -221,16 +302,70 @@
   color: var(--accent);
 }
 
+.project-doc--ongoing .project-doc__role {
+  color: #b87514;
+}
+
 .project-doc__desc {
   font-size: 0.82rem;
   color: var(--text-secondary);
   line-height: 1.55;
 }
 
+/* ============================================
+   EXPANDABLE SECTION
+   ============================================ */
+.project-doc__expand {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s ease, opacity 0.3s ease;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.project-doc__expand--open {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+.project-doc__expand-inner {
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.project-doc__details {
+  padding-top: 0.5rem;
+  margin-bottom: 0.4rem;
+}
+
+.project-doc__details-label {
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.project-doc__details p {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  border-left: 2px solid var(--border);
+  padding-left: 0.75rem;
+  margin: 0;
+}
+
 .project-doc__tags {
   display: flex;
   flex-wrap: wrap;
   gap: 0.35rem;
+  padding-top: 0.25rem;
 }
 
 .project-doc__tag {
@@ -276,18 +411,19 @@
   flex-shrink: 0;
 }
 
-/* Dog-ear fold */
+/* Dog-ear fold — softened with micro-shadow */
 .project-doc__fold {
   position: absolute;
   top: 0;
   right: 0;
-  width: 22px;
-  height: 22px;
-  background: linear-gradient(225deg, var(--bg-primary) 50%, var(--border) 50%);
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(225deg, var(--bg-primary) 48%, var(--border-subtle) 48%, var(--border) 52%, var(--paper-bg) 52%);
+  filter: drop-shadow(-1px 1px 1px rgba(0,0,0,0.06));
 }
 
 /* ============================================
-   RESPONSIVE — stack on mobile
+   RESPONSIVE
    ============================================ */
 @media (max-width: 768px) {
   .timeline::before {

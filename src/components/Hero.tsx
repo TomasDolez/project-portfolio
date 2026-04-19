@@ -1,6 +1,15 @@
+import { useState, useEffect } from 'react'
 import './Hero.css'
 
 export default function Hero() {
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 100)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
   return (
     <section className="hero" id="hero">
       {/* Background grid decoration */}
@@ -71,7 +80,7 @@ export default function Hero() {
       <div className="hero__content container">
         <div className="hero__badge reveal">
           <span className="hero__badge-dot" />
-          Available for new projects
+          Open to new opportunities
         </div>
 
         <h1 className="hero__name reveal reveal-delay-1">
@@ -98,6 +107,14 @@ export default function Hero() {
             Get in Touch
           </a>
         </div>
+        <div className="hero__cv-link reveal reveal-delay-4">
+          <a href="/cv-tomas-dolezal.pdf" download className="hero__cv">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+              <path d="M8 2v8M5 7l3 3 3-3M3 12h10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+            Download CV (PDF)
+          </a>
+        </div>
 
         {/* Stat bar — styled as sticky notes */}
         <div className="hero__stats reveal reveal-delay-4">
@@ -116,7 +133,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="hero__scroll-hint" aria-hidden="true">
+      <div className={`hero__scroll-hint ${scrolled ? 'hero__scroll-hint--hidden' : ''}`} aria-hidden="true">
         <div className="hero__mouse">
           <div className="hero__mouse-wheel" />
         </div>

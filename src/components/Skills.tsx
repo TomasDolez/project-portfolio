@@ -1,69 +1,5 @@
+import { groups, colorMap, levelDots } from '../data/skills'
 import './Skills.css'
-
-interface Skill {
-  name: string
-  color: 'yellow' | 'blue' | 'pink' | 'green' | 'orange'
-}
-
-interface SkillGroup {
-  category: string
-  items: Skill[]
-}
-
-const colorMap = {
-  yellow: { bg: 'var(--sticky-yellow-bg)', border: 'var(--sticky-yellow)' },
-  blue: { bg: 'var(--sticky-blue-bg)', border: 'var(--sticky-blue)' },
-  pink: { bg: 'var(--sticky-pink-bg)', border: 'var(--sticky-pink)' },
-  green: { bg: 'var(--sticky-green-bg)', border: 'var(--sticky-green)' },
-  orange: { bg: 'var(--sticky-orange-bg)', border: 'var(--sticky-orange)' },
-}
-
-const groups: SkillGroup[] = [
-  {
-    category: 'Methodologies',
-    items: [
-      { name: 'Agile / Scrum', color: 'green' },
-      { name: 'Kanban', color: 'blue' },
-      { name: 'Waterfall', color: 'yellow' },
-      { name: 'Hybrid', color: 'orange' },
-      { name: 'Change Management', color: 'pink' },
-      { name: 'Design Thinking', color: 'green' },
-    ],
-  },
-  {
-    category: 'AI & Automation',
-    items: [
-      { name: 'Claude / LLMs', color: 'pink' },
-      { name: 'Prompt Engineering', color: 'blue' },
-      { name: 'AI Agents', color: 'orange' },
-      { name: 'Workflow Automation', color: 'yellow' },
-      { name: 'Dynamic Pricing', color: 'green' },
-      { name: 'Process Mining', color: 'blue' },
-    ],
-  },
-  {
-    category: 'Tools & Platforms',
-    items: [
-      { name: 'Jira', color: 'blue' },
-      { name: 'Confluence', color: 'blue' },
-      { name: 'Targetprocess', color: 'orange' },
-      { name: 'MS Loop', color: 'pink' },
-      { name: 'Power BI', color: 'yellow' },
-      { name: 'Notion', color: 'green' },
-    ],
-  },
-  {
-    category: 'Communication & Ops',
-    items: [
-      { name: 'MS Teams', color: 'blue' },
-      { name: 'SharePoint', color: 'green' },
-      { name: 'Miro', color: 'yellow' },
-      { name: 'Figma', color: 'orange' },
-      { name: 'GitHub', color: 'pink' },
-      { name: 'Slack', color: 'pink' },
-    ],
-  },
-]
 
 const rotations = ['-2deg', '1.5deg', '-1deg', '2deg', '-1.5deg', '0.8deg', '-0.5deg', '1.2deg']
 
@@ -74,6 +10,16 @@ export default function Skills() {
         <div className="reveal">
           <span className="section-label">Skills & Toolbox</span>
           <h2 className="section-title">What I work with</h2>
+          <div className="skills__legend">
+            <span className="skills__legend-item">
+              <span className="skills__dots"><span className="skills__dot skills__dot--filled" /><span className="skills__dot skills__dot--filled" /><span className="skills__dot skills__dot--filled" /></span>
+              Expert
+            </span>
+            <span className="skills__legend-item">
+              <span className="skills__dots"><span className="skills__dot skills__dot--filled" /><span className="skills__dot skills__dot--filled" /><span className="skills__dot" /></span>
+              Proficient
+            </span>
+          </div>
         </div>
 
         <div className="skills__board">
@@ -83,6 +29,7 @@ export default function Skills() {
               <div className="skills__notes">
                 {g.items.map((item, ii) => {
                   const c = colorMap[item.color]
+                  const filled = levelDots[item.level]
                   return (
                     <div
                       key={item.name}
@@ -94,6 +41,14 @@ export default function Skills() {
                       }}
                     >
                       <span className="skills__note-text">{item.name}</span>
+                      <span className="skills__dots">
+                        {[1, 2, 3].map((d) => (
+                          <span
+                            key={d}
+                            className={`skills__dot ${d <= filled ? 'skills__dot--filled' : ''}`}
+                          />
+                        ))}
+                      </span>
                     </div>
                   )
                 })}
